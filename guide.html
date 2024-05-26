@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Guidlines</title>
+</head>
+<body>
+    <h1>MENTOR AND STUDENT - PLEASE MAKE SURE YOU FOLLOW THE GUIDELINES TO USE THE API<span style="font-size : 20px"><h6 style="margin : 0px; font-weight : lighter">by HARI KRISHNAN V K</h6></span></h1>
+    <hr />
+    <h3><mark>ENDPOINTS:</mark></h3>
+    <p><b>/</b> - To Show API Guidlines [http request type : <b>GET</b>]</p>
+    <p><b>/create/mentor</b> - To Create a Mentor (QUESTION 1)[http request type : <b>POST</b>]</p>
+    <p><b>/create/student</b> - To Create a Student (QUESTION 2) [http request type : <b>POST</b>]</p>
+    <p><b>/assign/studentMentor</b> - To Assign Student to Mentor (QUESTION : 3 and 4) [http request type : <b>PUT</b>]</p>
+    <p><b>/show/mentorStudents/:id</b> - To Show all students for a particular mentor (QUESTION 5) [http request type : <b>GET</b>]</p>
+    <p><b>/show/previousMentor/:id</b> - To Show the previously assigned mentor for a particular student (QUESTION :6) [http request type : <b>GET</b>]</p>
+    <p><b>/reset</b> - To reset Collection [http request type : <b>DELETE</b>]</p>
+    <hr />
+    <h3>To PUT data for Assigning Student to Mentor and vice versa (QUESTION : 3 and 4)</h3>
+    <h4 style="font-weight: lighter;">
+    Request body should be of format:
+    {
+        role : "",
+        name : "",
+        assignee : ""
+    }
+
+    role - should be only "student" or "mentor"
+
+    <div>if role is "student" |
+        name : should be student name |
+        assignee - should be mentor name assignee can be null but cannot be array</div>
+
+    if role is "mentor" |
+    name : should be mentor name |
+    assignee - should be student name. assignee can be null or array of Student names
+
+    <div>
+        examples for student
+        <div>
+            {<br>
+                "role" : "student",<br>
+                "name" : "Rajiv Menon",<br>
+                "assignee" : "Dr. C. Bhattacharya" OR null<br>
+            }
+        </div>
+    </div>
+    <div>
+        examples for mentor
+        <div>
+            {<br>
+                "role" : "mentor",<br>
+                "name" : "Dr. C. Bhattacharya",<br>
+                "assignee" : "Rajiv Menon" OR null OR ["Rajiv Menon","Rohan Gupta","Pooja Verma"]<br>
+            }
+        </div>
+    </div>
+    </h4>
+</body>
+</html>

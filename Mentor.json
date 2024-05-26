@@ -1,0 +1,26 @@
+[{
+    "name": "Dr. A. Kumar",
+    "course": "Mathematics",
+    "students_teaching": [
+      "Ananya Sharma",
+      "Priya Patel",
+      "Neha Desai"
+    ]
+  },
+  {
+    "name": "Dr. B. Iyer",
+    "course": "Physics",
+    "students_teaching": [
+      "Suresh Mehta",
+      "Pooja Verma",
+      "Arjun Rao"
+    ]
+  },
+  {
+    "name": "Dr. C. Bhattacharya",
+    "course": "Biology",
+    "students_teaching": [
+      "Tanya Das",
+      "Meena Nair"
+    ]
+  }]
