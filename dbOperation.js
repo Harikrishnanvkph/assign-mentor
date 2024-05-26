@@ -11,6 +11,18 @@ route.get("/",async(req,res,next)=>{
     res.end();
 })
 
+//list students
+route.get("/students",async(req,res,next)=>{
+    const students = await client.db("NodeJS_Day3").collection("Student").find({}).toArray();
+    res.json(students);
+})
+
+//list mentors
+route.get("/mentors",async(req,res,next)=>{
+    const mentors = await client.db("NodeJS_Day3").collection("Mentor").find({}).toArray();
+    res.json(mentors);
+})
+
 // Create a Mentor (Task : 1)
 route.post("/create/mentor",async(req,res,next)=>{
     console.log(req.body)
