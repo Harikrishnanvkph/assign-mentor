@@ -1,0 +1,347 @@
+/* ===========================
+   ChartForge Pro - Theme Styles
+   =========================== */
+
+/* Default Theme */
+.theme-default {
+    --chart-color-1: #5470c6;
+    --chart-color-2: #91cc75;
+    --chart-color-3: #fac858;
+    --chart-color-4: #ee6666;
+    --chart-color-5: #73c0de;
+    --chart-color-6: #3ba272;
+    --chart-color-7: #fc8452;
+    --chart-color-8: #9a60b4;
+    --chart-color-9: #ea7ccc;
+    --chart-color-10: #ff9f7f;
+}
+
+/* Dark Theme */
+.theme-dark {
+    --chart-color-1: #4992ff;
+    --chart-color-2: #7cffb2;
+    --chart-color-3: #fddd60;
+    --chart-color-4: #ff6e76;
+    --chart-color-5: #58d9f9;
+    --chart-color-6: #05c091;
+    --chart-color-7: #ff8a45;
+    --chart-color-8: #8d48e3;
+    --chart-color-9: #dd79ff;
+    --chart-color-10: #ffb980;
+}
+
+/* Vintage Theme */
+.theme-vintage {
+    --chart-color-1: #d87c7c;
+    --chart-color-2: #919e8b;
+    --chart-color-3: #d7ab82;
+    --chart-color-4: #6e7074;
+    --chart-color-5: #61a0a8;
+    --chart-color-6: #efa18d;
+    --chart-color-7: #787464;
+    --chart-color-8: #cc7e63;
+    --chart-color-9: #724e58;
+    --chart-color-10: #4b565b;
+}
+
+/* Pastel Theme */
+.theme-pastel {
+    --chart-color-1: #ffb3ba;
+    --chart-color-2: #ffdfba;
+    --chart-color-3: #ffffba;
+    --chart-color-4: #baffc9;
+    --chart-color-5: #bae1ff;
+    --chart-color-6: #ffd4e5;
+    --chart-color-7: #d4a5a5;
+    --chart-color-8: #a8dadc;
+    --chart-color-9: #f1faee;
+    --chart-color-10: #e63946;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+    --chart-color-1: #003f5c;
+    --chart-color-2: #2f4b7c;
+    --chart-color-3: #665191;
+    --chart-color-4: #a05195;
+    --chart-color-5: #d45087;
+    --chart-color-6: #f95d6a;
+    --chart-color-7: #ff7c43;
+    --chart-color-8: #ffa600;
+    --chart-color-9: #488f31;
+    --chart-color-10: #7aa3e5;
+}
+
+/* Forest Theme */
+.theme-forest {
+    --chart-color-1: #2d6a4f;
+    --chart-color-2: #40916c;
+    --chart-color-3: #52b788;
+    --chart-color-4: #74c69d;
+    --chart-color-5: #95d5b2;
+    --chart-color-6: #b7e4c7;
+    --chart-color-7: #d8f3dc;
+    --chart-color-8: #081c15;
+    --chart-color-9: #1b4332;
+    --chart-color-10: #2d6a4f;
+}
+
+/* Sunset Theme */
+.theme-sunset {
+    --chart-color-1: #ff006e;
+    --chart-color-2: #fb5607;
+    --chart-color-3: #ffbe0b;
+    --chart-color-4: #8338ec;
+    --chart-color-5: #3a86ff;
+    --chart-color-6: #ff4365;
+    --chart-color-7: #00d9ff;
+    --chart-color-8: #ffd23f;
+    --chart-color-9: #ee6c4d;
+    --chart-color-10: #293241;
+}
+
+/* Monochrome Themes */
+.theme-mono-blue {
+    --chart-color-1: #08306b;
+    --chart-color-2: #08519c;
+    --chart-color-3: #2171b5;
+    --chart-color-4: #4292c6;
+    --chart-color-5: #6baed6;
+    --chart-color-6: #9ecae1;
+    --chart-color-7: #c6dbef;
+    --chart-color-8: #deebf7;
+    --chart-color-9: #f7fbff;
+    --chart-color-10: #084594;
+}
+
+.theme-mono-green {
+    --chart-color-1: #00441b;
+    --chart-color-2: #006d2c;
+    --chart-color-3: #238b45;
+    --chart-color-4: #41ab5d;
+    --chart-color-5: #74c476;
+    --chart-color-6: #a1d99b;
+    --chart-color-7: #c7e9c0;
+    --chart-color-8: #e5f5e0;
+    --chart-color-9: #f7fcf5;
+    --chart-color-10: #005a32;
+}
+
+.theme-mono-red {
+    --chart-color-1: #67000d;
+    --chart-color-2: #a50f15;
+    --chart-color-3: #cb181d;
+    --chart-color-4: #ef3b2c;
+    --chart-color-5: #fb6a4a;
+    --chart-color-6: #fc9272;
+    --chart-color-7: #fcbba1;
+    --chart-color-8: #fee0d2;
+    --chart-color-9: #fff5f0;
+    --chart-color-10: #99000d;
+}
+
+/* Business Themes */
+.theme-business-blue {
+    --chart-color-1: #1e3a8a;
+    --chart-color-2: #2563eb;
+    --chart-color-3: #3b82f6;
+    --chart-color-4: #60a5fa;
+    --chart-color-5: #93c5fd;
+    --chart-color-6: #bfdbfe;
+    --chart-color-7: #dbeafe;
+    --chart-color-8: #eff6ff;
+    --chart-color-9: #1e40af;
+    --chart-color-10: #3730a3;
+}
+
+.theme-business-professional {
+    --chart-color-1: #1f2937;
+    --chart-color-2: #374151;
+    --chart-color-3: #4b5563;
+    --chart-color-4: #6b7280;
+    --chart-color-5: #9ca3af;
+    --chart-color-6: #d1d5db;
+    --chart-color-7: #e5e7eb;
+    --chart-color-8: #f3f4f6;
+    --chart-color-9: #f9fafb;
+    --chart-color-10: #111827;
+}
+
+/* Scientific Themes */
+.theme-scientific {
+    --chart-color-1: #440154;
+    --chart-color-2: #482878;
+    --chart-color-3: #3e4989;
+    --chart-color-4: #31688e;
+    --chart-color-5: #26828e;
+    --chart-color-6: #1f9e89;
+    --chart-color-7: #35b779;
+    --chart-color-8: #6ece58;
+    --chart-color-9: #b5de2b;
+    --chart-color-10: #fde725;
+}
+
+.theme-rainbow {
+    --chart-color-1: #e40303;
+    --chart-color-2: #ff8c00;
+    --chart-color-3: #ffed00;
+    --chart-color-4: #008026;
+    --chart-color-5: #24408e;
+    --chart-color-6: #732982;
+    --chart-color-7: #ff1744;
+    --chart-color-8: #ff9100;
+    --chart-color-9: #ffea00;
+    --chart-color-10: #00e676;
+}
+
+/* Accessibility Themes */
+.theme-colorblind-safe {
+    --chart-color-1: #0173b2;
+    --chart-color-2: #de8f05;
+    --chart-color-3: #029e73;
+    --chart-color-4: #cc78bc;
+    --chart-color-5: #ece133;
+    --chart-color-6: #56b4e9;
+    --chart-color-7: #f0e442;
+    --chart-color-8: #d55e00;
+    --chart-color-9: #009e73;
+    --chart-color-10: #cc79a7;
+}
+
+.theme-high-contrast {
+    --chart-color-1: #000000;
+    --chart-color-2: #ffffff;
+    --chart-color-3: #ff0000;
+    --chart-color-4: #00ff00;
+    --chart-color-5: #0000ff;
+    --chart-color-6: #ffff00;
+    --chart-color-7: #ff00ff;
+    --chart-color-8: #00ffff;
+    --chart-color-9: #808080;
+    --chart-color-10: #c0c0c0;
+}
+
+/* Chart-specific Theme Styles */
+.chart-theme-wrapper {
+    --axis-line-color: var(--gray-300);
+    --axis-label-color: var(--text-secondary);
+    --grid-line-color: var(--gray-200);
+    --tooltip-bg: var(--bg-primary);
+    --tooltip-border: var(--border-color);
+    --tooltip-text: var(--text-primary);
+    --legend-text: var(--text-primary);
+    --legend-inactive: var(--text-disabled);
+}
+
+.dark-theme .chart-theme-wrapper {
+    --axis-line-color: var(--gray-600);
+    --axis-label-color: var(--text-secondary);
+    --grid-line-color: var(--gray-700);
+    --tooltip-bg: var(--gray-800);
+    --tooltip-border: var(--gray-600);
+    --tooltip-text: var(--text-primary);
+    --legend-text: var(--text-primary);
+    --legend-inactive: var(--text-disabled);
+}
+
+/* Gradient Definitions */
+.gradient-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.gradient-success {
+    background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.gradient-warning {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.gradient-danger {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.gradient-info {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+/* Pattern Fills */
+.pattern-dots {
+    background-image: radial-gradient(circle, var(--gray-400) 1px, transparent 1px);
+    background-size: 10px 10px;
+}
+
+.pattern-lines {
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        var(--gray-300) 10px,
+        var(--gray-300) 11px
+    );
+}
+
+.pattern-grid {
+    background-image: 
+        linear-gradient(var(--gray-300) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gray-300) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Theme Transitions */
+.theme-transition {
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Custom Theme Builder */
+.custom-theme-builder {
+    --custom-color-1: #5470c6;
+    --custom-color-2: #91cc75;
+    --custom-color-3: #fac858;
+    --custom-color-4: #ee6666;
+    --custom-color-5: #73c0de;
+    --custom-color-6: #3ba272;
+    --custom-color-7: #fc8452;
+    --custom-color-8: #9a60b4;
+    --custom-color-9: #ea7ccc;
+    --custom-color-10: #ff9f7f;
+}
+
+/* Theme Preview Styles */
+.theme-preview-container {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.theme-preview-container:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-preview-container.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+/* Export Theme Styles */
+.export-theme-light {
+    background: white;
+    color: #333333;
+}
+
+.export-theme-dark {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.export-theme-transparent {
+    background: transparent;
+}
