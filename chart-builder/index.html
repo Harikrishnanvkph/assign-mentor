@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartForge Pro - Advanced Interactive Chart Builder</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="logo-text">ChartForge Pro</span>
+                </div>
+                <span class="version-badge">v2.0</span>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="nav-btn" data-action="new-chart">
+                    <i class="fas fa-plus"></i>
+                    <span>New Chart</span>
+                </button>
+                <button class="nav-btn" data-action="open-file">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Open</span>
+                </button>
+                <button class="nav-btn" data-action="save-chart">
+                    <i class="fas fa-save"></i>
+                    <span>Save</span>
+                </button>
+                <button class="nav-btn" data-action="templates">
+                    <i class="fas fa-th-large"></i>
+                    <span>Templates</span>
+                </button>
+                <div class="nav-separator"></div>
+                <button class="nav-btn" data-action="undo">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="nav-btn" data-action="redo">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="btn-icon" data-action="toggle-fullscreen">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button class="btn-icon" data-action="toggle-theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-primary" data-action="export">
+                    <i class="fas fa-download"></i>
+                    <span>Export</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Container -->
+    <div class="app-container">
+        <!-- Left Sidebar - Chart Types and Data -->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-chart-pie"></i> Chart Types</h3>
+                    <button class="btn-icon-sm" data-action="collapse-section">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="chart-types-grid">
+                    <div class="chart-type-item active" data-chart-type="line">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Line</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="bar">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Bar</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="pie">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Pie</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="scatter">
+                        <i class="fas fa-braille"></i>
+                        <span>Scatter</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="area">
+                        <i class="fas fa-chart-area"></i>
+                        <span>Area</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="radar">
+                        <i class="fas fa-satellite-dish"></i>
+                        <span>Radar</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="heatmap">
+                        <i class="fas fa-th"></i>
+                        <span>Heatmap</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="treemap">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Treemap</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="sunburst">
+                        <i class="fas fa-sun"></i>
+                        <span>Sunburst</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="sankey">
+                        <i class="fas fa-stream"></i>
+                        <span>Sankey</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="gauge">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Gauge</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="funnel">
+                        <i class="fas fa-filter"></i>
+                        <span>Funnel</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="boxplot">
+                        <i class="fas fa-box"></i>
+                        <span>Boxplot</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="candlestick">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Candlestick</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="parallel">
+                        <i class="fas fa-grip-lines-vertical"></i>
+                        <span>Parallel</span>
+                    </div>
+                    <div class="chart-type-item" data-chart-type="graph">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Graph</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <button class="btn-icon-sm" data-action="collapse-section">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="data-controls">
+                    <div class="data-source-tabs">
+                        <button class="tab-btn active" data-tab="manual">Manual</button>
+                        <button class="tab-btn" data-tab="import">Import</button>
+                        <button class="tab-btn" data-tab="api">API</button>
+                        <button class="tab-btn" data-tab="database">Database</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="manual-data">
+                        <div class="data-table-container">
+                            <div class="data-table-toolbar">
+                                <button class="btn-sm" data-action="add-row">
+                                    <i class="fas fa-plus"></i> Row
+                                </button>
+                                <button class="btn-sm" data-action="add-column">
+                                    <i class="fas fa-plus"></i> Column
+                                </button>
+                                <button class="btn-sm" data-action="clear-data">
+                                    <i class="fas fa-trash"></i> Clear
+                                </button>
+                            </div>
+                            <div class="data-table-wrapper">
+                                <table class="data-table" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th contenteditable="true">Category</th>
+                                            <th contenteditable="true">Value 1</th>
+                                            <th contenteditable="true">Value 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td contenteditable="true">Jan</td>
+                                            <td contenteditable="true">120</td>
+                                            <td contenteditable="true">80</td>
+                                        </tr>
+                                        <tr>
+                                            <td contenteditable="true">Feb</td>
+                                            <td contenteditable="true">150</td>
+                                            <td contenteditable="true">95</td>
+                                        </tr>
+                                        <tr>
+                                            <td contenteditable="true">Mar</td>
+                                            <td contenteditable="true">180</td>
+                                            <td contenteditable="true">110</td>
+                                        </tr>
+                                        <tr>
+                                            <td contenteditable="true">Apr</td>
+                                            <td contenteditable="true">210</td>
+                                            <td contenteditable="true">125</td>
+                                        </tr>
+                                        <tr>
+                                            <td contenteditable="true">May</td>
+                                            <td contenteditable="true">190</td>
+                                            <td contenteditable="true">140</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="import-data">
+                        <div class="import-section">
+                            <div class="import-dropzone" id="dropzone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & Drop files here</p>
+                                <span>CSV, JSON, Excel supported</span>
+                                <button class="btn-secondary">Browse Files</button>
+                            </div>
+                            <div class="import-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="hasHeaders">
+                                    <span>First row contains headers</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="transpose">
+                                    <span>Transpose data</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="api-data">
+                        <div class="api-section">
+                            <div class="input-group">
+                                <label>API Endpoint</label>
+                                <input type="text" placeholder="https://api.example.com/data" id="apiEndpoint">
+                            </div>
+                            <div class="input-group">
+                                <label>Method</label>
+                                <select id="apiMethod">
+                                    <option>GET</option>
+                                    <option>POST</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Headers (JSON)</label>
+                                <textarea id="apiHeaders" placeholder='{"Authorization": "Bearer token"}'></textarea>
+                            </div>
+                            <button class="btn-primary full-width">Fetch Data</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="database-data">
+                        <div class="database-section">
+                            <div class="input-group">
+                                <label>Database Type</label>
+                                <select id="dbType">
+                                    <option>MySQL</option>
+                                    <option>PostgreSQL</option>
+                                    <option>MongoDB</option>
+                                    <option>SQLite</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Connection String</label>
+                                <input type="text" placeholder="mysql://user:pass@host:port/db" id="dbConnection">
+                            </div>
+                            <div class="input-group">
+                                <label>Query</label>
+                                <textarea id="dbQuery" placeholder="SELECT * FROM table"></textarea>
+                            </div>
+                            <button class="btn-primary full-width">Connect & Query</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-layer-group"></i> Series Management</h3>
+                    <button class="btn-icon-sm" data-action="add-series">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="series-list" id="seriesList">
+                    <div class="series-item active">
+                        <div class="series-color" style="background: #5470c6;"></div>
+                        <input type="text" value="Series 1" class="series-name">
+                        <div class="series-actions">
+                            <button class="btn-icon-xs" data-action="toggle-series">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon-xs" data-action="delete-series">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="series-item">
+                        <div class="series-color" style="background: #91cc75;"></div>
+                        <input type="text" value="Series 2" class="series-name">
+                        <div class="series-actions">
+                            <button class="btn-icon-xs" data-action="toggle-series">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon-xs" data-action="delete-series">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chart Canvas -->
+        <main class="chart-canvas-container">
+            <div class="canvas-toolbar">
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" data-action="zoom-in">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="toolbar-btn" data-action="zoom-out">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="toolbar-btn" data-action="reset-zoom">
+                        <i class="fas fa-compress"></i>
+                    </button>
+                </div>
+                <div class="toolbar-group">
+                    <button class="toolbar-btn" data-action="toggle-grid">
+                        <i class="fas fa-border-all"></i>
+                    </button>
+                    <button class="toolbar-btn" data-action="toggle-legend">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <button class="toolbar-btn" data-action="toggle-tooltip">
+                        <i class="fas fa-comment-dots"></i>
+                    </button>
+                </div>
+                <div class="toolbar-group">
+                    <select class="toolbar-select" id="chartOrientation">
+                        <option value="vertical">Vertical</option>
+                        <option value="horizontal">Horizontal</option>
+                    </select>
+                </div>
+                <div class="toolbar-group">
+                    <button class="toolbar-btn active" data-view="chart">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button class="toolbar-btn" data-view="code">
+                        <i class="fas fa-code"></i>
+                    </button>
+                    <button class="toolbar-btn" data-view="split">
+                        <i class="fas fa-columns"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="canvas-content">
+                <div id="chartContainer" class="chart-container"></div>
+                <div id="codeEditor" class="code-editor" style="display: none;">
+                    <div class="code-toolbar">
+                        <select id="codeLanguage">
+                            <option value="javascript">JavaScript</option>
+                            <option value="json">JSON Config</option>
+                            <option value="html">HTML</option>
+                        </select>
+                        <button class="btn-sm" data-action="copy-code">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button class="btn-sm" data-action="apply-code">
+                            <i class="fas fa-play"></i> Apply
+                        </button>
+                    </div>
+                    <textarea id="codeContent" class="code-content"></textarea>
+                </div>
+            </div>
+            
+            <div class="canvas-status">
+                <div class="status-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span id="chartInfo">Line Chart - 2 Series, 5 Data Points</span>
+                </div>
+                <div class="status-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdate">Last updated: Just now</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Customization Panels -->
+        <aside class="sidebar sidebar-right">
+            <div class="customization-tabs">
+                <button class="custom-tab active" data-panel="general">
+                    <i class="fas fa-cog"></i>
+                    <span>General</span>
+                </button>
+                <button class="custom-tab" data-panel="style">
+                    <i class="fas fa-palette"></i>
+                    <span>Style</span>
+                </button>
+                <button class="custom-tab" data-panel="axes">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span>Axes</span>
+                </button>
+                <button class="custom-tab" data-panel="legend">
+                    <i class="fas fa-list-ul"></i>
+                    <span>Legend</span>
+                </button>
+                <button class="custom-tab" data-panel="animation">
+                    <i class="fas fa-film"></i>
+                    <span>Animation</span>
+                </button>
+                <button class="custom-tab" data-panel="interaction">
+                    <i class="fas fa-hand-pointer"></i>
+                    <span>Interaction</span>
+                </button>
+            </div>
+
+            <!-- General Settings Panel -->
+            <div class="panel-content active" id="panel-general">
+                <div class="panel-section">
+                    <h4>Chart Title</h4>
+                    <input type="text" id="chartTitle" placeholder="Enter chart title" value="Sales Performance">
+                    <div class="row">
+                        <div class="col">
+                            <label>Position</label>
+                            <select id="titlePosition">
+                                <option value="top">Top</option>
+                                <option value="bottom">Bottom</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Alignment</label>
+                            <select id="titleAlign">
+                                <option value="left">Left</option>
+                                <option value="center">Center</option>
+                                <option value="right">Right</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Chart Subtitle</h4>
+                    <input type="text" id="chartSubtitle" placeholder="Enter subtitle" value="Q1 2024">
+                </div>
+
+                <div class="panel-section">
+                    <h4>Canvas Settings</h4>
+                    <div class="row">
+                        <div class="col">
+                            <label>Width (px)</label>
+                            <input type="number" id="canvasWidth" value="800">
+                        </div>
+                        <div class="col">
+                            <label>Height (px)</label>
+                            <input type="number" id="canvasHeight" value="600">
+                        </div>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="responsive" checked>
+                        <span>Responsive</span>
+                    </label>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Background</h4>
+                    <div class="color-input-group">
+                        <input type="color" id="bgColor" value="#ffffff">
+                        <input type="text" value="#ffffff" data-sync="bgColor">
+                    </div>
+                    <label>Opacity</label>
+                    <input type="range" id="bgOpacity" min="0" max="100" value="100">
+                </div>
+
+                <div class="panel-section">
+                    <h4>Padding</h4>
+                    <div class="padding-inputs">
+                        <div class="row">
+                            <div class="col">
+                                <label>Top</label>
+                                <input type="number" id="paddingTop" value="20">
+                            </div>
+                            <div class="col">
+                                <label>Right</label>
+                                <input type="number" id="paddingRight" value="20">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Bottom</label>
+                                <input type="number" id="paddingBottom" value="20">
+                            </div>
+                            <div class="col">
+                                <label>Left</label>
+                                <input type="number" id="paddingLeft" value="20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Style Panel -->
+            <div class="panel-content" id="panel-style">
+                <div class="panel-section">
+                    <h4>Theme Presets</h4>
+                    <div class="theme-grid">
+                        <div class="theme-item active" data-theme="default">
+                            <div class="theme-preview">
+                                <span style="background: #5470c6;"></span>
+                                <span style="background: #91cc75;"></span>
+                                <span style="background: #fac858;"></span>
+                                <span style="background: #ee6666;"></span>
+                            </div>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-item" data-theme="dark">
+                            <div class="theme-preview">
+                                <span style="background: #4992ff;"></span>
+                                <span style="background: #7cffb2;"></span>
+                                <span style="background: #fddd60;"></span>
+                                <span style="background: #ff6e76;"></span>
+                            </div>
+                            <span>Dark</span>
+                        </div>
+                        <div class="theme-item" data-theme="vintage">
+                            <div class="theme-preview">
+                                <span style="background: #d87c7c;"></span>
+                                <span style="background: #919e8b;"></span>
+                                <span style="background: #d7ab82;"></span>
+                                <span style="background: #6e7074;"></span>
+                            </div>
+                            <span>Vintage</span>
+                        </div>
+                        <div class="theme-item" data-theme="pastel">
+                            <div class="theme-preview">
+                                <span style="background: #ffb3ba;"></span>
+                                <span style="background: #ffdfba;"></span>
+                                <span style="background: #ffffba;"></span>
+                                <span style="background: #baffc9;"></span>
+                            </div>
+                            <span>Pastel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Color Palette</h4>
+                    <div class="color-palette" id="colorPalette">
+                        <div class="color-item">
+                            <input type="color" value="#5470c6" data-index="0">
+                        </div>
+                        <div class="color-item">
+                            <input type="color" value="#91cc75" data-index="1">
+                        </div>
+                        <div class="color-item">
+                            <input type="color" value="#fac858" data-index="2">
+                        </div>
+                        <div class="color-item">
+                            <input type="color" value="#ee6666" data-index="3">
+                        </div>
+                        <div class="color-item">
+                            <input type="color" value="#73c0de" data-index="4">
+                        </div>
+                        <button class="btn-sm" data-action="add-color">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Font Settings</h4>
+                    <div class="input-group">
+                        <label>Font Family</label>
+                        <select id="fontFamily">
+                            <option value="Inter">Inter</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Courier New">Courier New</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Size</label>
+                            <input type="number" id="fontSize" value="12" min="8" max="32">
+                        </div>
+                        <div class="col">
+                            <label>Weight</label>
+                            <select id="fontWeight">
+                                <option value="300">Light</option>
+                                <option value="400">Regular</option>
+                                <option value="500">Medium</option>
+                                <option value="600">Semibold</option>
+                                <option value="700">Bold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Text Color</label>
+                        <div class="color-input-group">
+                            <input type="color" id="textColor" value="#333333">
+                            <input type="text" value="#333333" data-sync="textColor">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Border & Shadow</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showBorder">
+                        <span>Show Border</span>
+                    </label>
+                    <div class="border-settings" style="display: none;">
+                        <div class="row">
+                            <div class="col">
+                                <label>Width</label>
+                                <input type="number" id="borderWidth" value="1" min="0" max="10">
+                            </div>
+                            <div class="col">
+                                <label>Color</label>
+                                <input type="color" id="borderColor" value="#cccccc">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Style</label>
+                            <select id="borderStyle">
+                                <option value="solid">Solid</option>
+                                <option value="dashed">Dashed</option>
+                                <option value="dotted">Dotted</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showShadow">
+                        <span>Show Shadow</span>
+                    </label>
+                    <div class="shadow-settings" style="display: none;">
+                        <div class="row">
+                            <div class="col">
+                                <label>Blur</label>
+                                <input type="number" id="shadowBlur" value="10" min="0" max="50">
+                            </div>
+                            <div class="col">
+                                <label>Offset X</label>
+                                <input type="number" id="shadowOffsetX" value="0" min="-50" max="50">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Offset Y</label>
+                                <input type="number" id="shadowOffsetY" value="0" min="-50" max="50">
+                            </div>
+                            <div class="col">
+                                <label>Color</label>
+                                <input type="color" id="shadowColor" value="#000000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Axes Panel -->
+            <div class="panel-content" id="panel-axes">
+                <div class="panel-section">
+                    <h4>X-Axis</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showXAxis" checked>
+                        <span>Show X-Axis</span>
+                    </label>
+                    <div class="axis-settings">
+                        <div class="input-group">
+                            <label>Label</label>
+                            <input type="text" id="xAxisLabel" placeholder="X-Axis Label">
+                        </div>
+                        <div class="input-group">
+                            <label>Type</label>
+                            <select id="xAxisType">
+                                <option value="category">Category</option>
+                                <option value="value">Value</option>
+                                <option value="time">Time</option>
+                                <option value="log">Logarithmic</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Min</label>
+                                <input type="number" id="xAxisMin" placeholder="Auto">
+                            </div>
+                            <div class="col">
+                                <label>Max</label>
+                                <input type="number" id="xAxisMax" placeholder="Auto">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="xAxisGrid" checked>
+                            <span>Show Grid Lines</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="xAxisTick" checked>
+                            <span>Show Tick Marks</span>
+                        </label>
+                        <div class="input-group">
+                            <label>Label Rotation</label>
+                            <input type="range" id="xAxisRotation" min="-90" max="90" value="0">
+                            <span class="range-value">0°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Y-Axis</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showYAxis" checked>
+                        <span>Show Y-Axis</span>
+                    </label>
+                    <div class="axis-settings">
+                        <div class="input-group">
+                            <label>Label</label>
+                            <input type="text" id="yAxisLabel" placeholder="Y-Axis Label">
+                        </div>
+                        <div class="input-group">
+                            <label>Type</label>
+                            <select id="yAxisType">
+                                <option value="value">Value</option>
+                                <option value="category">Category</option>
+                                <option value="time">Time</option>
+                                <option value="log">Logarithmic</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Min</label>
+                                <input type="number" id="yAxisMin" placeholder="Auto">
+                            </div>
+                            <div class="col">
+                                <label>Max</label>
+                                <input type="number" id="yAxisMax" placeholder="Auto">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="yAxisGrid" checked>
+                            <span>Show Grid Lines</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="yAxisTick" checked>
+                            <span>Show Tick Marks</span>
+                        </label>
+                        <div class="input-group">
+                            <label>Label Rotation</label>
+                            <input type="range" id="yAxisRotation" min="-90" max="90" value="0">
+                            <span class="range-value">0°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Secondary Axes</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableSecondaryY">
+                        <span>Enable Secondary Y-Axis</span>
+                    </label>
+                    <div class="secondary-axis-settings" style="display: none;">
+                        <div class="input-group">
+                            <label>Label</label>
+                            <input type="text" id="secondaryYLabel" placeholder="Secondary Y-Axis">
+                        </div>
+                        <div class="input-group">
+                            <label>Series</label>
+                            <select id="secondaryYSeries" multiple>
+                                <option value="series1">Series 1</option>
+                                <option value="series2">Series 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend Panel -->
+            <div class="panel-content" id="panel-legend">
+                <div class="panel-section">
+                    <h4>Legend Settings</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showLegend" checked>
+                        <span>Show Legend</span>
+                    </label>
+                    <div class="legend-settings">
+                        <div class="input-group">
+                            <label>Position</label>
+                            <div class="position-grid">
+                                <button class="position-btn" data-position="top-left">↖</button>
+                                <button class="position-btn" data-position="top">↑</button>
+                                <button class="position-btn active" data-position="top-right">↗</button>
+                                <button class="position-btn" data-position="left">←</button>
+                                <button class="position-btn" data-position="center">●</button>
+                                <button class="position-btn" data-position="right">→</button>
+                                <button class="position-btn" data-position="bottom-left">↙</button>
+                                <button class="position-btn" data-position="bottom">↓</button>
+                                <button class="position-btn" data-position="bottom-right">↘</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Orientation</label>
+                            <select id="legendOrientation">
+                                <option value="horizontal">Horizontal</option>
+                                <option value="vertical">Vertical</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Icon Type</label>
+                            <select id="legendIcon">
+                                <option value="circle">Circle</option>
+                                <option value="rect">Rectangle</option>
+                                <option value="roundRect">Rounded Rectangle</option>
+                                <option value="triangle">Triangle</option>
+                                <option value="diamond">Diamond</option>
+                                <option value="pin">Pin</option>
+                                <option value="arrow">Arrow</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="legendScroll">
+                            <span>Enable Scrolling</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="legendClickable" checked>
+                            <span>Clickable (Toggle Series)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Legend Style</h4>
+                    <div class="row">
+                        <div class="col">
+                            <label>Width</label>
+                            <input type="number" id="legendWidth" placeholder="Auto">
+                        </div>
+                        <div class="col">
+                            <label>Height</label>
+                            <input type="number" id="legendHeight" placeholder="Auto">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Item Gap</label>
+                            <input type="number" id="legendItemGap" value="10">
+                        </div>
+                        <div class="col">
+                            <label>Padding</label>
+                            <input type="number" id="legendPadding" value="5">
+                        </div>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="legendBorder">
+                        <span>Show Border</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Animation Panel -->
+            <div class="panel-content" id="panel-animation">
+                <div class="panel-section">
+                    <h4>Animation Settings</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableAnimation" checked>
+                        <span>Enable Animation</span>
+                    </label>
+                    <div class="animation-settings">
+                        <div class="input-group">
+                            <label>Duration (ms)</label>
+                            <input type="range" id="animationDuration" min="0" max="5000" value="1000">
+                            <span class="range-value">1000ms</span>
+                        </div>
+                        <div class="input-group">
+                            <label>Easing</label>
+                            <select id="animationEasing">
+                                <option value="linear">Linear</option>
+                                <option value="quadraticIn">Quadratic In</option>
+                                <option value="quadraticOut">Quadratic Out</option>
+                                <option value="quadraticInOut">Quadratic In-Out</option>
+                                <option value="cubicIn">Cubic In</option>
+                                <option value="cubicOut">Cubic Out</option>
+                                <option value="cubicInOut" selected>Cubic In-Out</option>
+                                <option value="elasticIn">Elastic In</option>
+                                <option value="elasticOut">Elastic Out</option>
+                                <option value="elasticInOut">Elastic In-Out</option>
+                                <option value="backIn">Back In</option>
+                                <option value="backOut">Back Out</option>
+                                <option value="backInOut">Back In-Out</option>
+                                <option value="bounceIn">Bounce In</option>
+                                <option value="bounceOut">Bounce Out</option>
+                                <option value="bounceInOut">Bounce In-Out</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Delay (ms)</label>
+                            <input type="number" id="animationDelay" value="0" min="0" max="5000">
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="animationLoop">
+                            <span>Loop Animation</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Update Animation</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableUpdateAnimation" checked>
+                        <span>Animate on Update</span>
+                    </label>
+                    <div class="input-group">
+                        <label>Update Duration (ms)</label>
+                        <input type="range" id="updateDuration" min="0" max="2000" value="300">
+                        <span class="range-value">300ms</span>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Transition Effects</h4>
+                    <div class="input-group">
+                        <label>Entry Animation</label>
+                        <select id="entryAnimation">
+                            <option value="expansion">Expansion</option>
+                            <option value="scale">Scale</option>
+                            <option value="fade">Fade</option>
+                            <option value="slide">Slide</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Exit Animation</label>
+                        <select id="exitAnimation">
+                            <option value="contraction">Contraction</option>
+                            <option value="scale">Scale</option>
+                            <option value="fade">Fade</option>
+                            <option value="slide">Slide</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interaction Panel -->
+            <div class="panel-content" id="panel-interaction">
+                <div class="panel-section">
+                    <h4>Tooltip Settings</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showTooltip" checked>
+                        <span>Show Tooltip</span>
+                    </label>
+                    <div class="tooltip-settings">
+                        <div class="input-group">
+                            <label>Trigger</label>
+                            <select id="tooltipTrigger">
+                                <option value="mousemove">Mouse Move</option>
+                                <option value="click">Click</option>
+                                <option value="mousemove|click">Both</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Axis Pointer</label>
+                            <select id="axisPointer">
+                                <option value="line">Line</option>
+                                <option value="shadow">Shadow</option>
+                                <option value="cross">Cross</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tooltipConfine" checked>
+                            <span>Confine to Chart</span>
+                        </label>
+                        <div class="input-group">
+                            <label>Format Template</label>
+                            <textarea id="tooltipFormat" placeholder="{b}: {c}">{b}: {c}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Zoom & Pan</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableZoom">
+                        <span>Enable Zoom</span>
+                    </label>
+                    <div class="zoom-settings" style="display: none;">
+                        <div class="input-group">
+                            <label>Zoom Type</label>
+                            <select id="zoomType">
+                                <option value="inside">Inside</option>
+                                <option value="slider">Slider</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="zoomLock">
+                            <span>Lock Aspect Ratio</span>
+                        </label>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enablePan">
+                        <span>Enable Pan</span>
+                    </label>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Selection & Highlighting</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableDataSelect" checked>
+                        <span>Enable Data Selection</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableHighlight" checked>
+                        <span>Highlight on Hover</span>
+                    </label>
+                    <div class="input-group">
+                        <label>Selection Mode</label>
+                        <select id="selectionMode">
+                            <option value="single">Single</option>
+                            <option value="multiple">Multiple</option>
+                            <option value="series">Series</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h4>Export & Toolbox</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="showToolbox" checked>
+                        <span>Show Toolbox</span>
+                    </label>
+                    <div class="toolbox-settings">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="toolboxSaveImage" checked>
+                            <span>Save as Image</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="toolboxRestore" checked>
+                            <span>Restore</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="toolboxDataView" checked>
+                            <span>Data View</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="toolboxDataZoom">
+                            <span>Data Zoom</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="toolboxMagicType">
+                            <span>Switch Chart Type</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="templateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chart Templates</h2>
+                <button class="btn-icon" data-action="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="template-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="business">Business</button>
+                    <button class="category-btn" data-category="finance">Finance</button>
+                    <button class="category-btn" data-category="statistics">Statistics</button>
+                    <button class="category-btn" data-category="scientific">Scientific</button>
+                </div>
+                <div class="template-grid">
+                    <!-- Templates will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Export Chart</h2>
+                <button class="btn-icon" data-action="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="export-options">
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportPNG" value="png" checked>
+                        <label for="exportPNG">
+                            <i class="fas fa-image"></i>
+                            <span>PNG Image</span>
+                        </label>
+                    </div>
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportJPG" value="jpg">
+                        <label for="exportJPG">
+                            <i class="fas fa-image"></i>
+                            <span>JPG Image</span>
+                        </label>
+                    </div>
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportSVG" value="svg">
+                        <label for="exportSVG">
+                            <i class="fas fa-vector-square"></i>
+                            <span>SVG Vector</span>
+                        </label>
+                    </div>
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportPDF" value="pdf">
+                        <label for="exportPDF">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>PDF Document</span>
+                        </label>
+                    </div>
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportHTML" value="html">
+                        <label for="exportHTML">
+                            <i class="fas fa-code"></i>
+                            <span>HTML Interactive</span>
+                        </label>
+                    </div>
+                    <div class="export-option">
+                        <input type="radio" name="exportFormat" id="exportJSON" value="json">
+                        <label for="exportJSON">
+                            <i class="fas fa-file-code"></i>
+                            <span>JSON Config</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="export-settings">
+                    <h3>Export Settings</h3>
+                    <div class="row">
+                        <div class="col">
+                            <label>Width (px)</label>
+                            <input type="number" id="exportWidth" value="1920">
+                        </div>
+                        <div class="col">
+                            <label>Height (px)</label>
+                            <input type="number" id="exportHeight" value="1080">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Quality</label>
+                        <input type="range" id="exportQuality" min="1" max="100" value="95">
+                        <span class="range-value">95%</span>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="exportTransparent">
+                        <span>Transparent Background</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-action="cancel-export">Cancel</button>
+                <button class="btn-primary" data-action="confirm-export">
+                    <i class="fas fa-download"></i>
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-item" data-action="copy">
+            <i class="fas fa-copy"></i>
+            <span>Copy</span>
+        </div>
+        <div class="context-menu-item" data-action="paste">
+            <i class="fas fa-paste"></i>
+            <span>Paste</span>
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" data-action="duplicate">
+            <i class="fas fa-clone"></i>
+            <span>Duplicate</span>
+        </div>
+        <div class="context-menu-item" data-action="delete">
+            <i class="fas fa-trash"></i>
+            <span>Delete</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/chart-engine.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/customization.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+</html>
